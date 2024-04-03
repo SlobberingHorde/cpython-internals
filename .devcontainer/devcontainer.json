@@ -1,0 +1,27 @@
+{
+	"name": "cpython-internals",
+	"image": "cpython-internals:1.0.0",
+	"workspaceMount": "source=${localWorkspaceFolder}/src,target=/home/guest,type=bind",
+	"workspaceFolder": "/home/guest",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+	"mounts": [
+		"source=/home/jhoerig/.ssh,target=/home/jhoerig/.ssh,type=bind,consistency=cached,readonly",
+		"source=/home/jhoerig/.gitconfig,target=/home/jhoerig/.gitconfig,type=bind,consistency=cached,readonly"
+	  ],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+					  "path": "bash",
+					  "icon": "terminal-bash"
+					}
+				}
+			}
+		}
+	},
+	"postStartCommand": "/usr/bin/create-host-user.sh; su jhoerig"
+}
